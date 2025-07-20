@@ -1,7 +1,7 @@
 import { ReceiptText } from 'lucide-react';
 import Image from "next/image"
 import loginCover from "@/assets/login-cover.png"
-import { AuthFormWrapper } from "@/components/login-component"
+import { LoginComponent } from "@/components/login-component"
 
 export default function AuthenticationPage() {
   return (
@@ -17,7 +17,7 @@ export default function AuthenticationPage() {
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
-            <AuthFormWrapper />
+            <LoginComponent />
         </div>
       </div>
       <div className="relative hidden lg:block">
