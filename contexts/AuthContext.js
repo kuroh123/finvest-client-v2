@@ -9,18 +9,31 @@ export const AuthProvider = ({ children }) => {
     token: null,
     role: null,
     user: null,
+    loading: true, // Add loading state
   });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const role = localStorage.getItem("role");
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : null;
+
     if (token && role) {
       setAuth({
         isLoggedIn: true,
         token,
         role,
         user,
+        loading: false,
+      });
+    } else {
+      setAuth({
+        isLoggedIn: false,
+        token: null,
+        role: null,
+        user: null,
+        loading: false,
       });
     }
   }, []);
@@ -34,6 +47,7 @@ export const AuthProvider = ({ children }) => {
       token,
       role,
       user,
+      loading: false,
     });
   };
 
@@ -44,6 +58,7 @@ export const AuthProvider = ({ children }) => {
       token: null,
       role: null,
       user: null,
+      loading: false,
     });
   };
 
