@@ -115,6 +115,10 @@ export default function FinancierDashboard() {
   const pendingOffers = offers.filter((offer) => offer.status === "pending");
   const acceptedOffers = offers.filter((offer) => offer.status === "approved");
 
+  const handleMakeOffer = (invoiceId) => {
+    router.push(`/financier/${invoiceId}/make-offer`);
+  };
+
   return (
     <ProtectedRoute allowedRoles={["financier"]}>
       <div className="min-h-screen bg-gray-50">
@@ -282,7 +286,11 @@ export default function FinancierDashboard() {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => navigate(`/invoice/${invoice.id}`)}
+                            onClick={() =>
+                              router.push(
+                                `/financier/${invoice.id}/seller-invoice`
+                              )
+                            }
                           >
                             View Details
                           </Button>
