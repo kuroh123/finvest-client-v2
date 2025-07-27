@@ -153,9 +153,19 @@ export default function SellerDashboard() {
                       Your latest uploaded invoices
                     </CardDescription>
                   </div>
-                  <Button onClick={() => router.push("/seller/upload-invoice")}>
-                    Upload Invoice
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      onClick={() => router.push("/seller/my-invoices")}
+                    >
+                      View All
+                    </Button>
+                    <Button
+                      onClick={() => router.push("/seller/upload-invoice")}
+                    >
+                      Upload Invoice
+                    </Button>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">

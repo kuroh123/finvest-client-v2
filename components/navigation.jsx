@@ -26,13 +26,13 @@ export function Navigation() {
       return [
         { label: "Dashboard", path: "/seller" },
         { label: "My Invoices", path: "/seller/my-invoices" },
-        { label: "Settlements", path: "/seller/settlements" },
+        { label: "Upload Invoice", path: "/seller/upload-invoice" },
       ];
     } else {
       return [
         { label: "Dashboard", path: "/financier" },
         { label: "My Offers", path: "/financier/my-offers" },
-        { label: "Earnings", path: "/financier/earnings" },
+        { label: "Browse Invoices", path: "/financier/browse-invoices" },
       ];
     }
   };
@@ -79,7 +79,7 @@ export function Navigation() {
 
         <div className="flex items-center space-x-4">
           <div className="text-sm text-slate-600 capitalize">
-            {auth.role} Account
+            {auth.user?.name} Account
           </div>
 
           <DropdownMenu>
